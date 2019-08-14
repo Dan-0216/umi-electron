@@ -1,0 +1,12 @@
+{
+  "name": "umi-electron",
+  "version": "1.0.0",
+  "description": "umi.js width electron",
+  "main": "main/index.js",
+  "author": "Timdan",
+  "license": "ISC",
+  "dependencies": {
+    "electron-is": "^3.0.0"
+  }
+  
+}

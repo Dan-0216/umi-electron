@@ -1,0 +1,70 @@
+{
+  "private": true,
+  "name": "umi-elctron",
+  "version": "0.0.1",
+  "author": {
+    "name": "Timdan",
+    "email": "tim_zsd@163.com"
+  },
+  "scripts": {
+    "start": "umi dev",
+    "dev:main": "electron .",
+    "build:render": "umi build",
+    "test": "umi test",
+    "lint": "eslint --ext .js src mock tests",
+    "rebuild": "electron-rebuild -m ./app",
+    "pack":"npm run build:render && npm run rebuild && electron-builder --dir =./app",
+    "pack-linux": "npm run build:render && npm run rebuild && electron-builder build --linux",
+    "precommit": "lint-staged"
+  },
+  "main": "./app/main/index.js",
+  "dependencies": {
+    "antd": "^3.19.5",
+    "dva": "^2.6.0-beta.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "concurrently": "^4.1.1",
+    "electron": "^6.0.2",
+    "electron-builder": "^21.2.0",
+    "electron-is": "^3.0.0",
+    "electron-rebuild": "^1.8.5",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "react-test-renderer": "^16.7.0",
+    "umi": "^2.7.7",
+    "umi-plugin-react": "^1.8.4",
+    "webpack-chain": "^6.0.0"
+  },
+  "build": {
+    "appId": "umi-electron",
+    "asar": false,
+    "directories": {
+      "output": "OutputApp"
+    },
+    "linux": {
+      "target": [
+        "snap",
+        "AppImage"
+      ],
+      "category": "Development"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
