@@ -21,8 +21,11 @@ Electron example with [umi](https://github.com/umijs/umi/)
  npm run pack
  ```
  
+ ### 如何在 renderer 端引用 electron、node 原生模块、以及 app 里的依赖？
+
+ 直接 import 就好，已处理 externals。
+
  ## 参考
  https://github.com/umijs/umi-example-electron
 
  https://github.com/electron/electron-quick-start
- # umi-electron

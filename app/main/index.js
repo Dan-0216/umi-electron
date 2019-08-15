@@ -1,12 +1,14 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain } = require('electron')
 const { getPath } = require('./config/window.js')
-
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
-
+ipcMain.on('msg',(event,msg) => {
+  console.log('主进程收到消息==>',msg)
+  event.sender.send('reply', '这是主进程消息');
+})
 
 function createWindow () {
   // Create the browser window.
@@ -14,6 +16,9 @@ function createWindow () {
     width: 1200,
     height: 600,
     webPreferences: {
+      javascript: true,
+      plugins: true,
+      nodeIntegration: true, // 是否集成 Nodejs
       webSecurity: false
     }
     // webPreferences: {
