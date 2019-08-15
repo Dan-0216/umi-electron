@@ -8,6 +8,10 @@ export default {
   treeShaking: true,
   publicPath:'./',
   history: 'hash',
+  routes:[
+    { path:'/', component:'./index.js' },
+    { path:'/list', component:'./list/index.js',Routes: ['src/pages/routes/PrivateRoute.js'] }
+  ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
@@ -16,7 +20,6 @@ export default {
       dynamicImport: { webpackChunkName: true },
       title: 'umi_electron',
       dll: false,
-      
       routes: {
         exclude: [
           /models\//,
@@ -28,5 +31,12 @@ export default {
       },
     }],
   ],
+  proxy: {
+    "/api": {
+      "target": "http://192.168.1.24:5000/mock/5",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }
+  },
   outputPath:'./app/render', // 更改输出目录
 }
