@@ -1,11 +1,8 @@
 {
-  "private": true,
   "name": "umi-elctron",
   "version": "0.0.1",
-  "author": {
-    "name": "Timdan",
-    "email": "tim_zsd@163.com"
-  },
+  "license": "CC0-1.0",
+  "private": true,
   "scripts": {
     "start": "umi dev",
     "dev:main": "electron .",
@@ -13,8 +10,8 @@
     "test": "umi test",
     "lint": "eslint --ext .js src mock tests",
     "rebuild": "electron-rebuild -m ./app",
-    "pack":"npm run build:render && npm run rebuild && electron-builder --dir =./app",
-    "pack-linux": "npm run build:render && npm run rebuild && electron-builder build --linux",
+    "pack": "npm run build:render && npm run rebuild && electron-builder --dir =./app",
+    "pack-linux": "npm run build:render && npm run rebuild && electron-builder build --linux ",
     "precommit": "lint-staged"
   },
   "main": "./app/main/index.js",
@@ -27,9 +24,8 @@
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "concurrently": "^4.1.1",
-    "electron": "^6.0.2",
-    "electron-builder": "^21.2.0",
-    "electron-is": "^3.0.0",
+    "electron": "^5.0.8",
+    "electron-builder": "^21.1.5",
     "electron-rebuild": "^1.8.5",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
@@ -45,8 +41,8 @@
     "webpack-chain": "^6.0.0"
   },
   "build": {
+    "productName": "umi-electron",
     "appId": "umi-electron",
-    "asar": false,
     "directories": {
       "output": "OutputApp"
     },
@@ -66,5 +62,9 @@
   },
   "engines": {
     "node": ">=8.0.0"
+  },
+  "author": {
+    "name": "Timdan",
+    "email": "tim_zsd@163.com"
   }
 }
