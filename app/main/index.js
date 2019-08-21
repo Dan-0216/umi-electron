@@ -16,10 +16,10 @@ function createWindow () {
     width: 1200,
     height: 600,
     webPreferences: {
-      javascript: true,
-      plugins: true,
+      // javascript: true,
+      // plugins: true,
       nodeIntegration: true, // 是否集成 Nodejs
-      webSecurity: false
+      webSecurity: false,
     }
     // webPreferences: {
     //   preload: path.join(__dirname, 'preload.js')

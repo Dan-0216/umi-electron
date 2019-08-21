@@ -5,8 +5,16 @@
   "main": "main/index.js",
   "author": "Timdan",
   "license": "ISC",
+  "scripts": {
+    "rebuild": "electron-rebuild -f",
+    "postinstall": "electron-rebuild",
+    "electron-rebuild": "electron-rebuild"
+  },
   "dependencies": {
-    "electron-is": "^3.0.0"
+    "electron-is": "^3.0.0",
+    "serialport": "^7.1.5"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.8.6"
   }
-  
 }

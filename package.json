@@ -6,13 +6,18 @@
   "scripts": {
     "start": "umi dev",
     "dev:main": "electron .",
+    "postinstall": "electron-rebuild",
+    "electron-rebuild": "electron-rebuild",
     "build:render": "umi build",
     "test": "umi test",
     "lint": "eslint --ext .js src mock tests",
     "rebuild": "electron-rebuild -m ./app",
-    "pack": "npm run build:render && npm run rebuild && electron-builder --dir =./app",
+    "rebuild1": "electron-rebuild -f -m ./app",
+    "pack": "npm run build:render && npm run rebuild1 && electron-builder --dir = app",
     "pack-linux": "npm run build:render && npm run rebuild && electron-builder build --linux ",
-    "precommit": "lint-staged"
+    "pack-t": "electron-builder --dir = app",
+    "precommit": "lint-staged",
+    "package": "electron-packager ./app --out ./OutApp  --platform=darwin --arch=x64"
   },
   "main": "./app/main/index.js",
   "dependencies": {
@@ -20,6 +25,7 @@
     "dva": "^2.6.0-beta.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "serialport": "^7.1.5",
     "umi-request": "^1.2.2"
   },
   "devDependencies": {
@@ -27,6 +33,7 @@
     "concurrently": "^4.1.1",
     "electron": "^5.0.8",
     "electron-builder": "^21.1.5",
+    "electron-packager": "^14.0.4",
     "electron-rebuild": "^1.8.5",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
@@ -45,8 +52,9 @@
   "build": {
     "productName": "umi-electron",
     "appId": "umi-electron",
+    "asar": false,
     "directories": {
-      "output": "OutputApp"
+      "output": "OutApp"
     },
     "linux": {
       "target": [

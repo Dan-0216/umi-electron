@@ -50,7 +50,8 @@ export default {
       'path',
       'os',
       'url',
-      'child_process'
+      'child_process',
+      'serialport'
     ];
     if (load.includes(request)) {
       isExternal = `require("${request}")`;

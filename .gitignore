@@ -7,9 +7,10 @@
 /yarn.lock
 /package-lock.json
 
+package-lock.json
 # production
 /dist
-/OutputApp
+/OutApp
 /app/node_modules
 /app/render
 # misc
