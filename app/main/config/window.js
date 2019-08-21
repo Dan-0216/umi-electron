@@ -5,7 +5,6 @@ function getPath(){
     if(is.dev()){
         filePath = 'http://127.0.0.1:8000/'
     }
-    filePath = 'http://127.0.0.1:8000/'
     return filePath;
 }
 

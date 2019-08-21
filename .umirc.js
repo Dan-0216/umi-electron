@@ -51,16 +51,19 @@ export default {
       'os',
       'url',
       'child_process',
-      'serialport'
     ];
     if (load.includes(request)) {
       isExternal = `require("${request}")`;
     }
     const appDeps = Object.keys(require('./app/package').dependencies);
+
     if (appDeps.includes(request)) {
       const orininalPath = slash(join(__dirname, './app/node_modules', request));
+          console.log('orininalPath',orininalPath)
+          console.log('request',request)
       const requireAbsolute = `require('${orininalPath}')`;
       isExternal = isDev ? requireAbsolute : `require('${request}')`;
+      console.log('isExternal',isExternal)
     }
     callback(null, isExternal);
   },

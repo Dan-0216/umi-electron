@@ -1,14 +1,15 @@
 import React from 'react'
 import { Button } from 'antd'
 import { connect } from 'dva';
-import { ipcRenderer, remote }  from 'electron'
-import  SerialPort from 'serialport'
+import { ipcRenderer, remote } from 'electron'
+import SerialPort from 'serialport'
+const { dialog } = remote;
 function List(props){ 
     // props.dispatch({
     //     type:'list/getlist'
     // })
-    console.log('SerialPort',SerialPort.prototype)
-    
+    console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
+
     SerialPort.list((err,ports)=>{
         console.log('err',err)
         console.log('ports',ports)
