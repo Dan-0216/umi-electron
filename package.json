@@ -25,7 +25,7 @@
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "concurrently": "^4.1.1",
-    "electron": "^5.0.8",
+    "electron": "^9.1.0",
     "electron-builder": "^21.1.5",
     "electron-rebuild": "^1.8.5",
     "eslint": "^5.4.0",
